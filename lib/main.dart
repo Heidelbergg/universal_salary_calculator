@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:universal_salary_calculator/screens/home_screen.dart';
+import 'package:universal_salary_calculator/screens/main_screens/dashboard.dart';
 
 
 void main() => runApp(MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF3EBACE),
         scaffoldBackgroundColor: Color(0xFFF3F5F7),
       ),
-      home: HomeScreen()
+      home: Dashboard()
       );
   }
 }

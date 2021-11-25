@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:universal_salary_calculator/screens/main_screens/history_screen.dart';
+import 'package:universal_salary_calculator/screens/main_screens/job_screen.dart';
+import 'package:universal_salary_calculator/screens/main_screens/settings_screen.dart';
+import 'home_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+
+class Dashboard extends StatefulWidget {
+  const Dashboard({Key? key}) : super(key: key);
 
   @override
   _HomescreenState createState() => _HomescreenState();
 }
 
-class _HomescreenState extends State<HomeScreen> {
+class _HomescreenState extends State<Dashboard> {
 
   int _currentIndex = 0;
   late PageController _pageController;
@@ -40,10 +45,10 @@ class _HomescreenState extends State<HomeScreen> {
             setState(() => _currentIndex = index);
           },
           children: <Widget>[
-            Container(),
-            Container(),
-            Container(),
-            Container(),
+            Container(child: HomeScreen()),
+            Container(child: JobScreen()),
+            Container(child: HistoryScreen()),
+            Container(child: SettingsScreen()),
           ],
         ),
       ),
@@ -55,19 +60,19 @@ class _HomescreenState extends State<HomeScreen> {
         },
         items: <BottomNavyBarItem>[
           BottomNavyBarItem(
-              title: Text('Item One'),
+              title: Text('Home'),
               icon: Icon(Icons.home)
           ),
           BottomNavyBarItem(
-              title: Text('Item Two'),
+              title: Text('Jobs'),
               icon: Icon(Icons.apps)
           ),
           BottomNavyBarItem(
-              title: Text('Item Three'),
-              icon: Icon(Icons.chat_bubble)
+              title: Text('History'),
+              icon: Icon(Icons.history)
           ),
           BottomNavyBarItem(
-              title: Text('Item Four'),
+              title: Text('Settings'),
               icon: Icon(Icons.settings)
           ),
         ],
