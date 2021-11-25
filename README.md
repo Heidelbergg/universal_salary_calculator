@@ -14,3 +14,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+Design: https://www.figma.com/file/mErffebI9Dc9pCVuRQpWh8/Universal-Job-Salary-Calculator?node-id=3%3A1575
