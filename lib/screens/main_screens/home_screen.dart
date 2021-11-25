@@ -7,24 +7,21 @@ class HomeScreen  extends StatefulWidget {
   @override
   _State createState() => _State();
 }
-
 class _State extends State<HomeScreen>{
-  
+
   @override
   Widget build(BuildContext context) {
-    return DraggableScrollableSheet(
-      maxChildSize: 0.5,
-      builder: (BuildContext context, ScrollController scrollController) {
-        return SingleChildScrollView(
-          controller: scrollController,
-          child: ListView(
-            children: const [
-              
-            ],
+    return Container(
+      margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height / 2),
+      color: Colors.blue,
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 7),
+              child: Text("Total income this month")
           ),
-        );
-      },
-
+        ],
+      ),
     );
   }
 }
