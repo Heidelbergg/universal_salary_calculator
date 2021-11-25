@@ -44,11 +44,11 @@ class _HomescreenState extends State<Dashboard> {
           onPageChanged: (index) {
             setState(() => _currentIndex = index);
           },
-          children: <Widget>[
-            Container(child: HomeScreen()),
-            Container(child: JobScreen()),
-            Container(child: HistoryScreen()),
-            Container(child: SettingsScreen()),
+          children: const <Widget>[
+            HomeScreen(),
+            JobScreen(),
+            HistoryScreen(),
+            SettingsScreen(),
           ],
         ),
       ),

@@ -12,6 +12,19 @@ class _State extends State<HomeScreen>{
   
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return DraggableScrollableSheet(
+      maxChildSize: 0.5,
+      builder: (BuildContext context, ScrollController scrollController) {
+        return SingleChildScrollView(
+          controller: scrollController,
+          child: ListView(
+            children: const [
+              
+            ],
+          ),
+        );
+      },
+
+    );
   }
 }
