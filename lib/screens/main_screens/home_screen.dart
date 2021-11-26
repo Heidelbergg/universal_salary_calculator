@@ -12,11 +12,12 @@ class _State extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: const EdgeInsets.only(top: 0),
       children: [
         Container(
           color: Colors.blue,
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height / 2,
+          margin: const EdgeInsets.only(bottom: 10),
+          height: MediaQuery.of(context).size.height / 3,
             child: ListView(
               children: [
                 Container(
@@ -38,8 +39,10 @@ class _State extends State<HomeScreen> {
                 ),
               ],
             ),
-          ),
         ),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "See more", onPressed: (){null;}),
+        CardFb2(text: "KFC", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kentucky_Fried_Chicken_201x_logo.svg/2560px-Kentucky_Fried_Chicken_201x_logo.svg.png", subtitle: "See more", onPressed: (){null;}),
+        CardFb2(text: "Athenas", imageUrl: "https://www.aeldresagen.dk/-/media/aeldresagen-dk/03-tilbud-og-rabatter/partners/t/tikko/logo.png", subtitle: "See more", onPressed: (){null;}),
       ],
     );
   }
@@ -80,7 +83,7 @@ class CardFb2 extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.network(imageUrl, height: 59, fit: BoxFit.cover),
+            SizedBox(width: 60, height: 40, child: Image.network(imageUrl, height: 59, fit: BoxFit.cover)),
             const SizedBox(
               width: 15,
             ),
