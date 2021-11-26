@@ -70,6 +70,7 @@ class CardFb2 extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 75,
         padding: const EdgeInsets.all(15.0),
+        margin: const EdgeInsets.only(bottom: 5),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12.5),
