@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sliding_sheet/sliding_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -40,12 +41,34 @@ class _State extends State<HomeScreen> {
               ],
             ),
         ),
-        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "See more", onPressed: (){null;}),
-        CardFb2(text: "KFC", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kentucky_Fried_Chicken_201x_logo.svg/2560px-Kentucky_Fried_Chicken_201x_logo.svg.png", subtitle: "See more", onPressed: (){null;}),
-        CardFb2(text: "Athenas", imageUrl: "https://www.aeldresagen.dk/-/media/aeldresagen-dk/03-tilbud-og-rabatter/partners/t/tikko/logo.png", subtitle: "See more", onPressed: (){null;}),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "See more", onPressed: showJobInfo),
+        CardFb2(text: "KFC", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kentucky_Fried_Chicken_201x_logo.svg/2560px-Kentucky_Fried_Chicken_201x_logo.svg.png", subtitle: "See more", onPressed: showJobInfo),
+        CardFb2(text: "Athenas", imageUrl: "https://www.aeldresagen.dk/-/media/aeldresagen-dk/03-tilbud-og-rabatter/partners/t/tikko/logo.png", subtitle: "See more", onPressed: showJobInfo),
       ],
     );
   }
+  Future showJobInfo () => showSlidingBottomSheet(
+      context,
+      builder: (context) => SlidingSheetDialog(
+        snapSpec: const SnapSpec(
+          snappings: [0.4, 0.7, 1]
+        ),
+        builder: showJob,
+      ),
+  );
+
+  Widget showJob(context, state) => Material(
+    child: ListView(
+      shrinkWrap: true,
+      primary: false,
+      padding: const EdgeInsets.all(16),
+      children: [
+
+        ElevatedButton(style: ElevatedButton.styleFrom(shape: const StadiumBorder(), padding: const EdgeInsets.symmetric(horizontal: 50)), onPressed: () => Navigator.of(context).pop(), child: const Text("Close"))
+      ],
+    ),
+  );
+
 }
 
 class CardFb2 extends StatelessWidget {
