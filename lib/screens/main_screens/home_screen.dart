@@ -10,6 +10,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _State extends State<HomeScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -50,18 +52,23 @@ class _State extends State<HomeScreen> {
   Future showJobInfo () => showSlidingBottomSheet(
       context,
       builder: (context) => SlidingSheetDialog(
+        duration: const Duration(milliseconds: 450),
         snapSpec: const SnapSpec(
-          snappings: [0.4, 0.7, 1]
+          snappings: [0.4, 0.7, 1], initialSnap: 0.4
         ),
         builder: showJob,
+        /////headerBuilder: buildHeader,
+        avoidStatusBar: true,
+        cornerRadius: 15,
       ),
   );
+
+  Widget buildHeader(BuildContext context, SheetState state) => Material(child: Stack(children: <Widget>[Container(height: MediaQuery.of(context).size.height / 3 , color: Colors.blue,),Positioned(bottom: 20, child: SizedBox(width: MediaQuery.of(context).size.width, height: 40, child: Image.network("https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", height: 59, fit: BoxFit.contain)))],),);
 
   Widget showJob(context, state) => Material(
     child: ListView(
       shrinkWrap: true,
       primary: false,
-      padding: const EdgeInsets.all(16),
       children: [
 
         ElevatedButton(style: ElevatedButton.styleFrom(shape: const StadiumBorder(), padding: const EdgeInsets.symmetric(horizontal: 50)), onPressed: () => Navigator.of(context).pop(), child: const Text("Close"))
