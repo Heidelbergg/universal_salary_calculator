@@ -37,7 +37,7 @@ class _State extends State<HomeScreen> {
                   child: const Center(
                       child: Text(
                     "0 DKK",
-                    style: TextStyle(color: Colors.white, fontSize: 36),
+                    style: TextStyle(color: Colors.white, fontSize: 36, fontWeight: FontWeight.bold),
                   )),
                 ),
               ],
@@ -71,7 +71,7 @@ class _State extends State<HomeScreen> {
       primary: false,
       children: [
 
-        ElevatedButton(style: ElevatedButton.styleFrom(shape: const StadiumBorder(), padding: const EdgeInsets.symmetric(horizontal: 50)), onPressed: () => Navigator.of(context).pop(), child: const Text("Close"))
+        Container(margin: const EdgeInsets.only(left: 10, right: 10), child: ElevatedButton(style: ElevatedButton.styleFrom(shape: const StadiumBorder(), padding: const EdgeInsets.symmetric(horizontal: 1)), onPressed: () => Navigator.of(context).pop(), child: const Text("Close")))
       ],
     ),
   );
