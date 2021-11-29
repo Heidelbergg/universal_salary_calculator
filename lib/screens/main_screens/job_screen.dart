@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
 import 'package:table_calendar/table_calendar.dart';
-
+import 'package:universal_salary_calculator/screens/partial_screens/add_job.dart';
 import 'home_screen.dart';
 
 class JobScreen extends StatefulWidget {
@@ -25,14 +25,13 @@ class _State extends State<JobScreen> {
         Container(
           color: Colors.blue,
           margin: const EdgeInsets.only(bottom: 10),
-          height: MediaQuery.of(context).size.height / 1.7,
+          height: MediaQuery.of(context).size.height / 1.5,
           child: ListView(
             padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 15),
             children: [
               Container(
                 padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
                 margin: const EdgeInsets.only(left: 10, right: 10),
-
                 child: TableCalendar(
                   firstDay: DateTime.utc(2010, 10, 16),
                   lastDay: DateTime.utc(2030, 3, 14),
@@ -68,6 +67,10 @@ class _State extends State<JobScreen> {
                     _focusedDay = focusedDay;
                   },
                 ),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width / 12, right: MediaQuery.of(context).size.width / 12),
+                child: ElevatedButton.icon(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const AddJobScreen()));}, icon: const Icon(Icons.add_circle), label: const Text("Add Entry"), style: ElevatedButton.styleFrom(primary: Colors.blueAccent, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),),
               ),
             ],
           ),

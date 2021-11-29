@@ -12,6 +12,6 @@ class _State extends State<AddJobScreen>{
   
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(color: Colors.white,);
   }
 }
