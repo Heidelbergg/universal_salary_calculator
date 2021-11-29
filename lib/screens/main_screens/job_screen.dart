@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sliding_sheet/sliding_sheet.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+import 'home_screen.dart';
 
 class JobScreen extends StatefulWidget {
   const JobScreen({Key? key}) : super(key: key);
@@ -22,11 +25,14 @@ class _State extends State<JobScreen> {
         Container(
           color: Colors.blue,
           margin: const EdgeInsets.only(bottom: 10),
-          height: MediaQuery.of(context).size.height / 1.6,
+          height: MediaQuery.of(context).size.height / 1.7,
           child: ListView(
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 15),
             children: [
               Container(
                 padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                margin: const EdgeInsets.only(left: 10, right: 10),
+
                 child: TableCalendar(
                   firstDay: DateTime.utc(2010, 10, 16),
                   lastDay: DateTime.utc(2030, 3, 14),
@@ -63,16 +69,45 @@ class _State extends State<JobScreen> {
                   },
                 ),
               ),
-
             ],
           ),
         ),
-        Container(
-          color: Colors.purple,
-          padding: EdgeInsets.all(10),
-          child: Text("data"),
-        ),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+        CardFb2(text: "Vikar", imageUrl: "https://katrinebjergskolen.aarhus.dk/media/23192/aula-logo.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132022572610000000", subtitle: "+1290 DKK", onPressed: showIncomeInfo),
+
       ],
     );
+
   }
+  Future showIncomeInfo () => showSlidingBottomSheet(
+    context,
+    builder: (context) => SlidingSheetDialog(
+      duration: const Duration(milliseconds: 450),
+      snapSpec: const SnapSpec(
+          snappings: [0.4, 0.7, 1], initialSnap: 0.4
+      ),
+      builder: showIncome,
+      /////headerBuilder: buildHeader,
+      avoidStatusBar: true,
+      cornerRadius: 15,
+    ),
+  );
+
+  Widget showIncome(context, state) => Material(
+    child: ListView(
+      shrinkWrap: true,
+      primary: false,
+      children: [
+
+        Container(margin: const EdgeInsets.only(left: 10, right: 10), child: ElevatedButton(style: ElevatedButton.styleFrom(shape: const StadiumBorder(), padding: const EdgeInsets.symmetric(horizontal: 1)), onPressed: () => Navigator.of(context).pop(), child: const Text("Close")))
+      ],
+    ),
+  );
 }
