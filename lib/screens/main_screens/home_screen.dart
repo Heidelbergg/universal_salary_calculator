@@ -114,7 +114,7 @@ class CardFb2 extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SizedBox(width: 60, height: 40, child: Image.network(imageUrl, height: 59, fit: BoxFit.cover)),
+            ClipRRect(borderRadius: BorderRadius.circular(10), child: SizedBox(width: 60, height: 40, child: Image.network(imageUrl, height: 59, fit: BoxFit.cover))),
             const SizedBox(
               width: 15,
             ),
