@@ -28,7 +28,7 @@ class _State extends State<HomeScreen> {
                         top: MediaQuery.of(context).size.height / 50),
                     child: const Center(
                         child: Text(
-                      "Current income next month",
+                      "Income next month",
                       style: TextStyle(color: Colors.white),
                     ))),
                 Container(

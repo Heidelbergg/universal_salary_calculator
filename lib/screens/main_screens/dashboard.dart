@@ -37,7 +37,7 @@ class _HomescreenState extends State<Dashboard> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SizedBox.expand(
         child: PageView(
@@ -58,23 +58,25 @@ class _HomescreenState extends State<Dashboard> {
         onItemSelected: (index) {
           setState(() => _currentIndex = index);
           _pageController.jumpToPage(index);
+          _pageController.animateToPage(index,
+              duration: const Duration(milliseconds: 900), curve: Curves.easeOut);
         },
         items: <BottomNavyBarItem>[
           BottomNavyBarItem(
-              title: Text('Home'),
-              icon: Icon(Icons.home)
+              title: const Text('Home'),
+              icon: const Icon(Icons.home)
           ),
           BottomNavyBarItem(
-              title: Text('Jobs'),
-              icon: Icon(Icons.apps)
+              title: const Text('Jobs'),
+              icon: const Icon(Icons.apps)
           ),
           BottomNavyBarItem(
-              title: Text('History'),
-              icon: Icon(Icons.history)
+              title: const Text('History'),
+              icon: const Icon(Icons.history)
           ),
           BottomNavyBarItem(
-              title: Text('Settings'),
-              icon: Icon(Icons.settings)
+              title: const Text('Settings'),
+              icon: const Icon(Icons.settings)
           ),
         ],
       ),
