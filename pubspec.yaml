@@ -30,7 +30,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  bottom_navy_bar: ^6.0.0
   sliding_sheet: ^0.5.2
   table_calendar: ^3.0.3
 
